@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO: swap in your real name, tagline, and domain -->
+    <title>Your Name — Web Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Your Name is a web developer building fast, accessible web apps. Explore my projects and get in touch."
+    />
+    <meta name="author" content="Your Name" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Name — Web Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Your Name is a web developer building fast, accessible web apps. Explore my projects and get in touch."
+    />
+    <meta property="og:url" content="https://your-username.github.io/" />
+    <!-- Add a public/og-image.png (1200x630) and uncomment the lines below -->
+    <!-- <meta property="og:image" content="/og-image.png" /> -->
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Your Name — Web Developer Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Your Name is a web developer building fast, accessible web apps."
+    />
+    <!-- <meta name="twitter:image" content="/og-image.png" /> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Apply the saved/system theme before paint to avoid a light/dark flash.
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

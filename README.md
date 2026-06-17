@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+A minimalist, single-page developer portfolio. Vite + React + TypeScript + Tailwind CSS. Fully static — no backend required.
 
-First, run the development server:
+## Stack
+
+- [Vite](https://vite.dev/) + React + TypeScript
+- Tailwind CSS v4
+- Deployed as static files via GitHub Actions → GitHub Pages
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install   # or: npm install
+bun run dev   # or: npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run build   # outputs to dist/
+bun run preview # preview the production build locally
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customizing content
 
-## Learn More
+Everything you're likely to want to change lives in a handful of files — no need to touch component logic:
 
-To learn more about Next.js, take a look at the following resources:
+| What | Where |
+| --- | --- |
+| Name, tagline, bio | [`src/sections/Hero.tsx`](src/sections/Hero.tsx), [`src/sections/About.tsx`](src/sections/About.tsx), [`src/components/Navbar.tsx`](src/components/Navbar.tsx), [`src/components/Footer.tsx`](src/components/Footer.tsx) |
+| Photo | Replace [`public/photo-placeholder.svg`](public/photo-placeholder.svg) (update the `src` in `About.tsx` if you rename the file) |
+| Skills | [`src/data/skills.ts`](src/data/skills.ts) |
+| Projects | [`src/data/projects.ts`](src/data/projects.ts) — add an object to the array to add a project. The first entry in the array renders as the larger "case study" card. |
+| Project thumbnails | `public/projects/` |
+| Social links + email | [`src/data/socials.ts`](src/data/socials.ts) |
+| Contact form endpoint | [`src/data/socials.ts`](src/data/socials.ts) — `contactFormEndpoint`. Sign up at [Formspree](https://formspree.io), create a form, and swap in your form ID. |
+| Accent color, fonts | [`src/index.css`](src/index.css) — the `@theme` block (`--color-accent`, `--font-heading`, `--font-body`) |
+| SEO meta / Open Graph | [`index.html`](index.html) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Search the codebase for comments containing "SWAP IN" to find every placeholder.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying to GitHub Pages
 
-## Deploy on Vercel
+This repo includes a GitHub Actions workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) that builds the site and deploys it to GitHub Pages on every push to `main`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. Set the Vite base path
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [`vite.config.ts`](vite.config.ts) and set `base` to match how you're hosting the site:
+
+- **User/org site** (repo named `your-username.github.io`, served at the domain root): keep `base: '/'`.
+- **Project site** (any other repo name, served at `https://your-username.github.io/repo-name/`): set `base: '/repo-name/'`.
+
+### 2. Enable GitHub Pages
+
+In your repo on GitHub: **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**.
+
+### 3. Push to `main`
+
+```bash
+git push origin main
+```
+
+The workflow builds the app and publishes the `dist/` output. Check the **Actions** tab for progress, and your live URL will appear in the Pages settings once the first deploy finishes.
+
+### Notes on routing
+
+This site is a single page with anchor-based smooth-scroll navigation (no client-side router), so there are no deep-link routes that can 404 on refresh. [`public/404.html`](public/404.html) simply redirects any unknown path back to the homepage.

@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Manual dark mode toggle: apply Tailwind's dark: variant based on a "dark" class on <html> instead of only prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* One accent color + neutrals. Edit here to restyle the whole site. */
+  --color-accent: #2563eb;
+  --color-accent-dark: #60a5fa;
+
+  --font-heading: "Sora", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-neutral-900 font-body antialiased dark:bg-neutral-950 dark:text-neutral-100;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+
+  /* Visible focus ring everywhere for keyboard navigation */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent dark:outline-accent-dark;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
