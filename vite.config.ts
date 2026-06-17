@@ -7,5 +7,5 @@ export default defineConfig({
   // GitHub Pages base path.
   // - User/org site (e.g. "username.github.io"): keep base as '/'
   // - Project site (e.g. "github.com/you/my-repo"): set base to '/my-repo/'
-  base: '/',
+  base: '/muhammadwildansapoetro/',
 })
