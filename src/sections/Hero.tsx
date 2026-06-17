@@ -9,7 +9,7 @@ export function Hero() {
       <FadeIn>
         {/* SWAP IN YOUR NAME AND TAGLINE */}
         <p className="text-sm font-medium uppercase tracking-wider text-accent dark:text-accent-dark">
-          Hi, I'm Your Name
+          Hi, I'm Muhammad Wildan Sapoetro
         </p>
         <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-6xl">
           I build fast, accessible web apps.

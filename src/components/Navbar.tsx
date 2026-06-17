@@ -21,7 +21,7 @@ export function Navbar() {
           className="font-heading text-lg font-semibold tracking-tight"
         >
           {/* SWAP IN YOUR NAME */}
-          Your Name
+          Muhammad Wildan Sapoetro
         </a>
 
         <div className="hidden items-center gap-8 sm:flex">

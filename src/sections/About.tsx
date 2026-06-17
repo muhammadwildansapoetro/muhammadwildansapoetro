@@ -17,7 +17,7 @@ export function About() {
         {/* SWAP IN YOUR REAL PHOTO */}
         <img
           src="/photo-placeholder.svg"
-          alt="Portrait of Your Name"
+          alt="Portrait of Muhammad Wildan Sapoetro"
           loading="lazy"
           className="h-48 w-48 rounded-2xl bg-neutral-100 object-cover dark:bg-neutral-800"
         />

@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-neutral-200 dark:border-neutral-800">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-8 sm:flex-row sm:justify-between">
         <p className="text-sm text-neutral-500 dark:text-neutral-500">
-          {/* SWAP IN YOUR NAME */}© {new Date().getFullYear()} Your Name
+          {/* SWAP IN YOUR NAME */}© {new Date().getFullYear()} Muhammad Wildan Sapoetro
         </p>
 
         <div className="flex items-center gap-4">
