@@ -1,12 +1,31 @@
-# Portfolio
+# Muhammad's Portfolio
 
-A minimalist, single-page developer portfolio. Vite + React + TypeScript + Tailwind CSS. Fully static — no backend required.
+My personal developer portfolio. Minimalist, single-page, fully static — no backend required.
+
+**Live:** [muhammadwildansapoetro.github.io](https://muhammadwildansapoetro.github.io)
 
 ## Stack
 
 - [Vite](https://vite.dev/) + React + TypeScript
 - Tailwind CSS v4
 - Deployed as static files via GitHub Actions → GitHub Pages
+
+## Project structure
+
+```
+src/
+  App.tsx              # Page composition: Navbar → Hero → About → Projects → Contact → Footer
+  main.tsx             # React entry point
+  index.css            # Tailwind import + @theme tokens (accent color, fonts)
+  components/          # Reusable, content-agnostic UI pieces (Navbar, Footer, ProjectCard, ThemeToggle, FadeIn, ...)
+  sections/             # Page sections that compose components + data (Hero, About, Projects, Contact)
+  data/                # Editable content: skills.ts, projects.ts, socials.ts
+  hooks/               # useScrollFadeIn — scroll-triggered fade-in animations
+  assets/              # Bundled images/icons referenced via import
+public/                # Static files served as-is (favicon, photo placeholder, project thumbnails, 404.html)
+```
+
+The split is intentional: `sections/` own layout and data wiring, `components/` are dumb/reusable, and `data/` is where content lives separately from logic (see the table below).
 
 ## Getting started
 
@@ -22,46 +41,27 @@ bun run build   # outputs to dist/
 bun run preview # preview the production build locally
 ```
 
-## Customizing content
+## Editing content
 
-Everything you're likely to want to change lives in a handful of files — no need to touch component logic:
+Everything content-related lives in a handful of files — no need to touch component logic:
 
 | What | Where |
 | --- | --- |
 | Name, tagline, bio | [`src/sections/Hero.tsx`](src/sections/Hero.tsx), [`src/sections/About.tsx`](src/sections/About.tsx), [`src/components/Navbar.tsx`](src/components/Navbar.tsx), [`src/components/Footer.tsx`](src/components/Footer.tsx) |
-| Photo | Replace [`public/photo-placeholder.svg`](public/photo-placeholder.svg) (update the `src` in `About.tsx` if you rename the file) |
+| Photo | Replace [`public/photo-placeholder.svg`](public/photo-placeholder.svg) (update the `src` in `About.tsx` if renamed) |
 | Skills | [`src/data/skills.ts`](src/data/skills.ts) |
-| Projects | [`src/data/projects.ts`](src/data/projects.ts) — add an object to the array to add a project. The first entry in the array renders as the larger "case study" card. |
+| Projects | [`src/data/projects.ts`](src/data/projects.ts) — add an object to the array to add a project. The first entry renders as the larger "case study" card. |
 | Project thumbnails | `public/projects/` |
 | Social links + email | [`src/data/socials.ts`](src/data/socials.ts) |
-| Contact form endpoint | [`src/data/socials.ts`](src/data/socials.ts) — `contactFormEndpoint`. Sign up at [Formspree](https://formspree.io), create a form, and swap in your form ID. |
+| Contact form endpoint | [`src/data/socials.ts`](src/data/socials.ts) — `contactFormEndpoint`, via [Formspree](https://formspree.io) |
 | Accent color, fonts | [`src/index.css`](src/index.css) — the `@theme` block (`--color-accent`, `--font-heading`, `--font-body`) |
 | SEO meta / Open Graph | [`index.html`](index.html) |
-
-Search the codebase for comments containing "SWAP IN" to find every placeholder.
 
 ## Deploying to GitHub Pages
 
 This repo includes a GitHub Actions workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) that builds the site and deploys it to GitHub Pages on every push to `main`.
 
-### 1. Set the Vite base path
-
-Open [`vite.config.ts`](vite.config.ts) and set `base` to match how you're hosting the site:
-
-- **User/org site** (repo named `your-username.github.io`, served at the domain root): keep `base: '/'`.
-- **Project site** (any other repo name, served at `https://your-username.github.io/repo-name/`): set `base: '/repo-name/'`.
-
-### 2. Enable GitHub Pages
-
-In your repo on GitHub: **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**.
-
-### 3. Push to `main`
-
-```bash
-git push origin main
-```
-
-The workflow builds the app and publishes the `dist/` output. Check the **Actions** tab for progress, and your live URL will appear in the Pages settings once the first deploy finishes.
+GitHub Pages is configured in **Settings → Pages → Build and deployment → Source → GitHub Actions**. The workflow builds the app and publishes the `dist/` output — check the **Actions** tab for progress.
 
 ### Notes on routing
 
