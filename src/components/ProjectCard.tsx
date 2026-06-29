@@ -37,7 +37,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           <dl className="mt-2 grid gap-4 border-t border-neutral-200 pt-4 text-sm sm:grid-cols-3 dark:border-neutral-800">
             <div>
               <dt className="font-medium text-neutral-900 dark:text-neutral-100">
-                Problem
+                Masalah
               </dt>
               <dd className="mt-1 text-neutral-600 dark:text-neutral-400">
                 {project.caseStudy.problem}
@@ -45,7 +45,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             </div>
             <div>
               <dt className="font-medium text-neutral-900 dark:text-neutral-100">
-                Role
+                Peran
               </dt>
               <dd className="mt-1 text-neutral-600 dark:text-neutral-400">
                 {project.caseStudy.role}
@@ -53,7 +53,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             </div>
             <div>
               <dt className="font-medium text-neutral-900 dark:text-neutral-100">
-                Outcome
+                Hasil
               </dt>
               <dd className="mt-1 text-neutral-600 dark:text-neutral-400">
                 {project.caseStudy.outcome}
@@ -81,7 +81,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
               rel="noreferrer"
               className="text-accent hover:underline dark:text-accent-dark"
             >
-              Live demo ↗
+              Lihat demo ↗
             </a>
           )}
           {project.repoUrl && (
@@ -91,7 +91,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
               rel="noreferrer"
               className="text-neutral-600 hover:underline dark:text-neutral-400"
             >
-              Source ↗
+              Kode sumber ↗
             </a>
           )}
         </div>

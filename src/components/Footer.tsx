@@ -27,7 +27,7 @@ export function Footer() {
             href="#top"
             className="text-sm font-medium text-neutral-500 transition hover:text-neutral-900 dark:hover:text-white"
           >
-            Back to top
+            Kembali ke atas
           </a>
         </div>
       </div>

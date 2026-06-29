@@ -10,7 +10,7 @@ export function About() {
       className="mx-auto max-w-5xl border-t border-neutral-200 px-6 py-20 dark:border-neutral-800"
     >
       <FadeIn>
-        <SectionHeading eyebrow="About" title="A little about me" />
+        <SectionHeading eyebrow="Tentang" title="Sedikit cerita tentang saya" />
       </FadeIn>
 
       <FadeIn className="grid gap-10 sm:grid-cols-[200px_1fr] sm:items-start">
@@ -23,12 +23,11 @@ export function About() {
         />
 
         <div>
-          {/* SWAP IN YOUR REAL BIO */}
           <p className="text-neutral-600 dark:text-neutral-400">
-            Write a few sentences about your background, what you're
-            passionate about, and what drives you as a developer. Mention
-            how you got started, what kind of projects excite you, and
-            anything that makes your story memorable.
+            Saya masih terus belajar di dunia pengembangan web, dan senang
+            mencoba hal-hal baru sepanjang prosesnya. Belum banyak yang bisa
+            saya bagikan, tapi saya berusaha untuk terus berkembang sedikit
+            demi sedikit lewat proyek-proyek kecil di bawah ini.
           </p>
 
           <div className="mt-8 space-y-5">

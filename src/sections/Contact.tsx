@@ -39,9 +39,9 @@ export function Contact() {
     >
       <FadeIn>
         <SectionHeading
-          eyebrow="Contact"
-          title="Let's work together"
-          description="Have a project in mind, or just want to say hi? Reach out."
+          eyebrow="Kontak"
+          title="Senang rasanya bisa berkenalan"
+          description="Ada proyek yang ingin didiskusikan, atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya."
         />
       </FadeIn>
 
@@ -70,7 +70,7 @@ export function Contact() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
             <label htmlFor="name" className="mb-1 block text-sm font-medium">
-              Name
+              Nama
             </label>
             <input
               id="name"
@@ -96,7 +96,7 @@ export function Contact() {
 
           <div>
             <label htmlFor="message" className="mb-1 block text-sm font-medium">
-              Message
+              Pesan
             </label>
             <textarea
               id="message"
@@ -112,17 +112,17 @@ export function Contact() {
             disabled={status === "submitting"}
             className="self-start rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-neutral-700 disabled:opacity-60 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
           >
-            {status === "submitting" ? "Sending…" : "Send message"}
+            {status === "submitting" ? "Mengirim…" : "Kirim pesan"}
           </button>
 
           {status === "success" && (
             <p role="status" className="text-sm text-green-600 dark:text-green-400">
-              Thanks! Your message has been sent.
+              Terima kasih! Pesan Anda sudah terkirim.
             </p>
           )}
           {status === "error" && (
             <p role="alert" className="text-sm text-red-600 dark:text-red-400">
-              Something went wrong. Please try again or email me directly.
+              Mohon maaf, ada kesalahan. Silakan coba lagi atau hubungi saya langsung lewat email.
             </p>
           )}
         </form>

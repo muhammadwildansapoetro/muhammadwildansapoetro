@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Tentang", href: "#about" },
+  { label: "Proyek", href: "#projects" },
+  { label: "Kontak", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -44,7 +44,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             type="button"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-label={isOpen ? "Tutup menu" : "Buka menu"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((open) => !open)}
             className="rounded-md p-2 text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"

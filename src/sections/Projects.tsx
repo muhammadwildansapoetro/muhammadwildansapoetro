@@ -11,15 +11,18 @@ export function Projects() {
     >
       <FadeIn>
         <SectionHeading
-          eyebrow="Work"
-          title="Selected projects"
-          description="A few things I've built. Add more in src/data/projects.ts."
+          eyebrow="PROYEK"
+          title="Proyek Pilihan"
+          description="Kumpulan proyek yang merepresentasikan kemampuan dan proses belajar saya, sebagian dikerjakan secara kolaboratif bersama tim."
         />
       </FadeIn>
 
       <div className="grid gap-6 sm:grid-cols-2">
         {projects.map((project, index) => (
-          <FadeIn key={project.title} className={index === 0 ? "sm:col-span-2" : ""}>
+          <FadeIn
+            key={project.title}
+            className={index === 0 ? "sm:col-span-2" : ""}
+          >
             <ProjectCard project={project} featured={index === 0} />
           </FadeIn>
         ))}
